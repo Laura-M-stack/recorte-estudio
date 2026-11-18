@@ -1,8 +1,13 @@
-# Vanta Studio — Landing Page
+# Recorte Estudio — Landing de agencia de diseño
 
-Pieza de portfolio. Landing page para una agencia de diseño ficticia.
+Pieza de portfolio: landing de una agencia de diseño ficticia (identidad, web y producto digital). Los casos, clientes y métricas son inventados.
 
-**Stack:** HTML5 · CSS3 · Vanilla JS  
-**Highlights:** cursor custom, scroll reveal, filtros interactivos, responsive, marquee animado, tipografía brutalista
+**Stack:** HTML5 · CSS3 · JavaScript sin dependencias
 
-[Ver demo →](https://Laura-M-stack.github.io/vanta-studio-landing)
+**Qué incluye**
+- Identidad propia: papel hueso, tinta y azul ultramar; Instrument Serif + Hanken Grotesk.
+- Casos en acordeón accesible, con filtros por disciplina.
+- Menú móvil, formulario de demostración (no envía nada) y aparición al hacer scroll.
+- Teclado completo, foco visible, `prefers-reduced-motion` respetado y sin scroll horizontal en móvil.
+
+[Ver demo →](https://laura-m-stack.github.io/vanta-studio-landing/)
