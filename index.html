@@ -5,36 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recorte Estudio — Diseñar es decidir qué dejar afuera</title>
 <meta name="description" content="Recorte Estudio: identidad visual, sitios web y productos digitales para marcas que prefieren decir menos y decirlo mejor.">
-<meta name="theme-color" content="#f2eee5">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f2eee5'/%3E%3Crect x='5' y='5' width='22' height='22' fill='none' stroke='%2315171c' stroke-width='2'/%3E%3Crect x='13' y='13' width='14' height='14' fill='%232338d4'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#f3eee4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f3eee4'/%3E%3Cpath d='M16 17V3a14 14 0 1 0 14 14z' fill='%23e8472b'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bone: #f2eee5;
-    --paper: #faf8f3;
-    --ink: #15171c;
-    --muted: #5a5d66;
-    --blue: #2338d4;
-    --blue-soft: #dde1f7;
-    --blue-light: #9aa6ff;
-    --line: rgba(21, 23, 28, 0.2);
+    --paper: #f3eee4;
+    --ink: #161616;
+    --tomato: #e8472b;
+    --sun: #f3b93b;
+    --pine: #17493a;
+    --muted: #4d4b46;
+    --line: rgba(22, 22, 22, 0.22);
     --gut: clamp(1.1rem, 4vw, 3rem);
-    --serif: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
-    --sans: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font: 'Archivo', 'Arial Narrow', Arial, system-ui, sans-serif;
   }
 
   html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
 
   body {
-    background: var(--bone);
+    background: var(--paper);
     color: var(--ink);
-    font-family: var(--sans);
+    font-family: var(--font);
     font-size: 1.05rem;
-    line-height: 1.6;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -42,217 +40,219 @@
   a { color: inherit; }
   button, input, textarea { font: inherit; color: inherit; }
   button { cursor: pointer; }
-
-  :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
 
   .skip {
     position: absolute; left: var(--gut); top: -4rem;
-    background: var(--ink); color: var(--bone);
+    background: var(--ink); color: var(--paper);
     padding: .6rem 1rem; z-index: 200; text-decoration: none;
   }
   .skip:focus { top: .6rem; }
 
   .wrap { max-width: 1320px; margin: 0 auto; padding: 0 var(--gut); }
 
-  .eyebrow {
-    font-size: .78rem;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--muted);
+  .tag {
+    display: inline-block;
+    font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    border: 2px solid currentColor; border-radius: 999px; padding: .2rem .8rem;
   }
 
   .display {
-    font-family: var(--serif);
-    font-weight: 400;
-    letter-spacing: -.015em;
-    line-height: .98;
+    font-weight: 800;
+    font-stretch: 108%;
+    letter-spacing: -.035em;
+    line-height: .95;
+    overflow-wrap: break-word;
   }
-  .display em { font-style: italic; color: var(--blue); }
+  .cut {
+    display: inline-block;
+    background: var(--sun); color: var(--ink);
+    padding: .02em .16em .06em;
+    transform: rotate(-2deg);
+    margin: 0 .04em;
+  }
+  .cut.t { background: var(--tomato); }
+  .cut.p { background: var(--pine); color: var(--paper); }
 
   /* ---------- HEADER ---------- */
   header.site {
     position: sticky; top: 0; z-index: 100;
-    background: var(--bone);
-    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    border-bottom: 3px solid var(--ink);
   }
   .bar {
     display: flex; align-items: center; justify-content: space-between;
-    gap: 1.5rem; padding-top: .9rem; padding-bottom: .9rem;
+    gap: 1.5rem; padding-top: .8rem; padding-bottom: .8rem;
   }
-  .brand {
-    display: flex; align-items: center; gap: .65rem;
-    text-decoration: none;
-  }
-  .brand svg { display: block; }
-  .brand-name { font-family: var(--serif); font-size: 1.7rem; line-height: 1; letter-spacing: -.01em; }
-  .brand-name small {
-    font-family: var(--sans); font-size: .68rem; letter-spacing: .18em;
-    text-transform: uppercase; color: var(--muted); margin-left: .35rem; font-weight: 500;
-  }
-  .nav-panel { display: flex; align-items: center; gap: 2rem; }
-  .nav-panel ul { display: flex; gap: 1.8rem; list-style: none; font-size: .95rem; }
-  .nav-panel ul a { text-decoration: none; padding: .3rem 0; border-bottom: 1px solid transparent; }
-  .nav-panel ul a:hover { border-color: var(--ink); }
+  .brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+  .brand-name { font-weight: 800; font-stretch: 112%; font-size: 1.45rem; letter-spacing: -.04em; line-height: 1; }
+  .brand-name small { font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; margin-left: .4rem; color: var(--muted); }
+  .nav-panel { display: flex; align-items: center; gap: 1.8rem; }
+  .nav-panel ul { display: flex; gap: 1.6rem; list-style: none; font-size: .95rem; font-weight: 600; }
+  .nav-panel ul a { text-decoration: none; padding: .3rem 0; border-bottom: 3px solid transparent; }
+  .nav-panel ul a:hover { border-color: var(--tomato); }
 
   .btn {
     display: inline-flex; align-items: center; gap: .6rem;
-    font-weight: 500; font-size: .98rem;
+    font-weight: 700; font-size: .98rem;
     padding: .85rem 1.5rem;
-    border: 1.5px solid var(--ink);
-    background: transparent; color: var(--ink);
+    border: 3px solid var(--ink);
+    background: var(--paper); color: var(--ink);
     text-decoration: none;
-    border-radius: 999px;
-    transition: background .18s, color .18s, border-color .18s;
+    border-radius: 0;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform .12s, box-shadow .12s, background .12s;
   }
-  .btn:hover { background: var(--ink); color: var(--bone); }
-  .btn.solid { background: var(--blue); border-color: var(--blue); color: var(--bone); }
-  .btn.solid:hover { background: var(--ink); border-color: var(--ink); }
-  .btn.small { padding: .55rem 1.1rem; font-size: .9rem; }
+  .btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+  .btn.solid { background: var(--tomato); }
+  .btn.small { padding: .5rem 1rem; font-size: .9rem; box-shadow: 3px 3px 0 var(--ink); }
 
   .menu-btn {
-    display: none;
-    background: none; border: 1.5px solid var(--ink); border-radius: 999px;
-    padding: .5rem 1rem; font-size: .9rem; font-weight: 500;
+    display: none; background: var(--paper); border: 3px solid var(--ink);
+    padding: .4rem .9rem; font-size: .9rem; font-weight: 700;
   }
 
   /* ---------- HERO ---------- */
-  .hero { padding: clamp(2.5rem, 6vw, 5rem) 0 0; }
-  .hero-grid {
-    display: grid; grid-template-columns: 1.25fr 1fr;
-    gap: clamp(2rem, 5vw, 5rem); align-items: center;
-  }
-  .hero h1 { font-size: clamp(3rem, 7.4vw, 7rem); margin: 1.2rem 0 1.8rem; }
-  .hero-sub { max-width: 34rem; font-size: 1.18rem; color: var(--muted); }
-  .hero-cta { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.2rem; }
+  .hero { padding: clamp(2rem, 5vw, 4rem) 0 0; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: center; }
+  .hero h1 { font-size: clamp(2.3rem, 6.6vw, 6.2rem); margin: 1.3rem 0 1.6rem; }
+  .hero-sub { max-width: 32rem; font-size: 1.15rem; color: var(--muted); font-weight: 500; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 1.1rem; margin-top: 2rem; }
 
-  .sheet { width: 100%; max-width: 440px; margin-left: auto; display: block; }
-  .sheet .guide { stroke-dasharray: 5 5; }
+  .collage { width: 100%; max-width: 520px; margin-left: auto; display: block; overflow: visible; }
 
-  .stats {
-    margin-top: clamp(2.5rem, 6vw, 5rem);
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--ink);
-  }
-  .stat { padding: 1.4rem 1.4rem 1.6rem 0; }
-  .stat + .stat { border-left: 1px solid var(--line); padding-left: 1.4rem; }
-  .stat b {
-    display: block; font-family: var(--serif); font-weight: 400;
-    font-size: clamp(2.6rem, 5vw, 4.2rem); line-height: 1; letter-spacing: -.02em;
-  }
-  .stat span { font-size: .85rem; color: var(--muted); }
+  .stats { margin-top: clamp(2.5rem, 6vw, 5rem); display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 3vw, 2.5rem); }
+  .stat { border-top: 6px solid var(--ink); padding-top: .9rem; }
+  .stat b { display: block; font-weight: 800; font-stretch: 112%; font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1; letter-spacing: -.04em; }
+  .stat span { font-size: .9rem; font-weight: 600; color: var(--muted); }
 
-  /* ---------- POSTURA ---------- */
-  .section { padding: clamp(3.5rem, 8vw, 7rem) 0; border-top: 1px solid var(--line); }
-  .split { display: grid; grid-template-columns: 200px 1fr; gap: clamp(1.5rem, 4vw, 4rem); }
-  .split > .eyebrow { padding-top: .7rem; }
-  .statement { font-size: clamp(2.2rem, 4.6vw, 4rem); max-width: 22ch; }
-  .principles {
-    margin-top: 3rem;
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    list-style: none;
-  }
-  .principles li { border-top: 1.5px solid var(--ink); padding-top: 1rem; }
-  .principles .n { font-size: .8rem; color: var(--blue); font-weight: 600; letter-spacing: .1em; }
-  .principles h3 { font-family: var(--serif); font-weight: 400; font-size: 1.7rem; line-height: 1.1; margin: .4rem 0 .6rem; }
-  .principles p { color: var(--muted); font-size: .98rem; }
+  /* ---------- SECCIONES ---------- */
+  .section { padding: clamp(3.5rem, 8vw, 7rem) 0; }
+  .section-head { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+  .section-head h2 { font-size: clamp(2.1rem, 5.4vw, 4.6rem); margin-top: 1rem; max-width: 18ch; }
 
-  /* ---------- CASOS ---------- */
+  /* Postura */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; list-style: none; }
+  .tile { padding: 1.8rem 1.6rem 2rem; min-height: 280px; display: flex; flex-direction: column; gap: .8rem; }
+  .tile:nth-child(1) { background: var(--tomato); border-radius: 0 150px 0 0; }
+  .tile:nth-child(2) { background: var(--sun); }
+  .tile:nth-child(3) { background: var(--pine); color: var(--paper); border-radius: 150px 0 0 0; }
+  .tile .letter { font-weight: 800; font-stretch: 125%; font-size: 3.4rem; line-height: 1; letter-spacing: -.04em; }
+  .tile:nth-child(3) .letter { align-self: flex-end; }
+  .tile h3 { font-weight: 800; font-stretch: 105%; font-size: 1.55rem; line-height: 1.05; letter-spacing: -.03em; margin-top: auto; }
+  .tile p { font-size: .98rem; }
+
+  /* Casos */
+  .cases-section { background: var(--pine); color: var(--paper); }
+  .cases-section :focus-visible { outline-color: var(--sun); }
   .cases-grid { display: grid; grid-template-columns: 1fr 340px; gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
   .cases-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .6rem; margin-bottom: 1.4rem; }
-  .cases-head h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
-  #count { font-size: .85rem; color: var(--muted); }
-
-  .filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.6rem; }
+  .cases-head h2 { font-size: clamp(2.1rem, 5vw, 4rem); }
+  #count { font-size: .9rem; font-weight: 600; opacity: .85; }
+  .filters { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1.6rem; }
   .chip {
-    background: transparent; border: 1.5px solid var(--line);
-    border-radius: 999px; padding: .4rem 1rem; font-size: .88rem; font-weight: 500;
-    color: var(--muted); transition: all .15s;
+    background: transparent; border: 2px solid var(--paper); color: var(--paper);
+    padding: .35rem 1rem; font-size: .88rem; font-weight: 700; border-radius: 999px;
+    transition: background .15s, color .15s;
   }
-  .chip:hover { border-color: var(--ink); color: var(--ink); }
-  .chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bone); }
+  .chip:hover { background: rgba(243, 238, 228, .15); }
+  .chip[aria-pressed="true"] { background: var(--sun); border-color: var(--sun); color: var(--ink); }
 
-  .case { border-top: 1px solid var(--ink); }
-  .case:last-child { border-bottom: 1px solid var(--ink); }
+  .case { border-top: 2px solid rgba(243, 238, 228, .4); }
+  .case:last-child { border-bottom: 2px solid rgba(243, 238, 228, .4); }
   .case[hidden] { display: none; }
+  .case h3 { font-weight: inherit; }
   .case-btn {
     width: 100%; display: grid; grid-template-columns: 3rem 1fr auto 2rem;
-    align-items: baseline; gap: 1rem; text-align: left;
-    background: none; border: none; padding: 1.3rem 0;
+    align-items: center; gap: 1rem; text-align: left;
+    background: none; border: none; padding: 1.2rem 0; color: inherit;
   }
-  .case-btn:hover .case-name { color: var(--blue); }
-  .case-n { font-size: .85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
-  .case-name { font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.05; transition: color .15s; }
-  .case-tags { font-size: .85rem; color: var(--muted); text-align: right; }
-  .case-icon { font-size: 1.4rem; line-height: 1; transition: transform .2s; text-align: right; }
+  .case-btn:hover .case-name { color: var(--sun); }
+  .case-n { font-size: .85rem; font-weight: 700; opacity: .75; font-variant-numeric: tabular-nums; }
+  .case-name { font-weight: 800; font-stretch: 108%; letter-spacing: -.03em; font-size: clamp(1.4rem, 2.8vw, 2.1rem); line-height: 1.05; transition: color .15s; }
+  .case-tags { font-size: .82rem; font-weight: 600; opacity: .85; text-align: right; }
+  .case-icon { font-size: 1.6rem; font-weight: 700; line-height: 1; text-align: right; transition: transform .2s; }
   .case-btn[aria-expanded="true"] .case-icon { transform: rotate(45deg); }
   .case-body { padding: 0 2rem 1.6rem 4rem; display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: end; }
   .case-body[hidden] { display: none; }
-  .case-body p { color: var(--muted); max-width: 38rem; }
-  .result { text-align: right; }
-  .result b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.9rem; line-height: 1; color: var(--blue); }
-  .result span { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .case-body p { max-width: 38rem; opacity: .9; }
+  .result { background: var(--sun); color: var(--ink); padding: .8rem 1.1rem; transform: rotate(-2deg); text-align: left; }
+  .result b { display: block; font-weight: 800; font-stretch: 110%; font-size: 1.7rem; line-height: 1; letter-spacing: -.03em; }
+  .result span { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 
   .aside { position: sticky; top: 6rem; display: flex; flex-direction: column; gap: 1.2rem; }
-  .quote { background: var(--paper); border: 1px solid var(--line); padding: 1.8rem; }
-  .quote p { font-family: var(--serif); font-size: 1.55rem; line-height: 1.2; }
-  .quote cite { display: block; margin-top: 1.1rem; font-style: normal; font-size: .85rem; color: var(--muted); }
-  .slots { background: var(--blue); color: var(--bone); padding: 1.8rem; }
-  .slots h3 { font-family: var(--serif); font-weight: 400; font-size: 2rem; line-height: 1.05; margin-bottom: .6rem; }
-  .slots p { font-size: .95rem; opacity: .85; margin-bottom: 1.3rem; }
-  .slots .btn { border-color: var(--bone); color: var(--bone); }
-  .slots .btn:hover { background: var(--bone); color: var(--blue); }
+  .quote { background: var(--paper); color: var(--ink); padding: 1.8rem; border-radius: 0 0 0 80px; }
+  .quote p { font-weight: 700; font-size: 1.3rem; line-height: 1.2; letter-spacing: -.02em; }
+  .quote cite { display: block; margin-top: 1rem; font-style: normal; font-size: .85rem; font-weight: 600; color: var(--muted); }
+  .slots { background: var(--tomato); color: var(--ink); padding: 1.8rem; }
+  .slots h3 { font-weight: 800; font-stretch: 108%; font-size: 1.7rem; line-height: 1.05; letter-spacing: -.035em; margin-bottom: .8rem; }
+  .slots p { font-size: .95rem; margin-bottom: 1.3rem; font-weight: 500; }
 
-  /* ---------- SERVICIOS ---------- */
-  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
-  .service { background: var(--paper); border: 1px solid var(--line); padding: 2rem 1.8rem; display: flex; flex-direction: column; gap: 1rem; min-height: 340px; }
-  .service .n { font-size: .8rem; color: var(--blue); font-weight: 600; letter-spacing: .1em; }
-  .service h3 { font-family: var(--serif); font-weight: 400; font-size: 2.2rem; line-height: 1; }
-  .service p { color: var(--muted); font-size: .98rem; }
-  .service ul { list-style: none; margin-top: auto; border-top: 1px solid var(--line); padding-top: 1rem; font-size: .92rem; }
+  /* Servicios */
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .service { border: 3px solid var(--ink); padding: 2rem 1.8rem; display: flex; flex-direction: column; gap: 1rem; min-height: 360px; background: var(--paper); }
+  .service:nth-child(1) { border-radius: 0 0 140px 0; }
+  .service:nth-child(2) { border-radius: 0; background: var(--sun); }
+  .service:nth-child(3) { border-radius: 140px 0 0 0; }
+  .service:nth-child(3) .n { align-self: flex-end; }
+  .service .n { font-weight: 800; font-stretch: 125%; font-size: 1rem; }
+  .service h3 { font-weight: 800; font-stretch: 112%; font-size: 2.4rem; line-height: 1; letter-spacing: -.04em; }
+  .service p { font-size: .98rem; }
+  .service ul { list-style: none; margin-top: auto; border-top: 3px solid var(--ink); padding-top: 1rem; font-size: .92rem; font-weight: 600; }
   .service li { padding: .15rem 0; }
-  .service li::before { content: '— '; color: var(--blue); }
-  .service .time { font-size: .8rem; color: var(--muted); margin-top: .6rem; }
+  .service li::before { content: '+ '; color: var(--tomato); font-weight: 800; }
+  .service:nth-child(2) li::before { color: var(--ink); }
+  .service .time { font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-top: .6rem; }
 
-  /* ---------- PROCESO ---------- */
-  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; list-style: none; counter-reset: step; }
-  .steps li { border-top: 1.5px solid var(--ink); padding-top: 1rem; counter-increment: step; }
-  .steps li::before { content: '0' counter(step); font-size: .8rem; color: var(--blue); font-weight: 600; letter-spacing: .1em; }
-  .steps h3 { font-family: var(--serif); font-weight: 400; font-size: 1.9rem; line-height: 1.05; margin: .4rem 0 .5rem; }
-  .steps p { color: var(--muted); font-size: .96rem; }
+  /* Proceso */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; list-style: none; counter-reset: step; position: relative; }
+  .steps li { counter-increment: step; }
+  .steps li::before {
+    content: counter(step);
+    display: grid; place-items: center; width: 3.2rem; height: 3.2rem; border-radius: 50%;
+    font-weight: 800; font-size: 1.3rem; margin-bottom: 1rem; color: var(--ink);
+  }
+  .steps li:nth-child(1)::before { background: var(--tomato); }
+  .steps li:nth-child(2)::before { background: var(--sun); }
+  .steps li:nth-child(3)::before { background: var(--pine); color: var(--paper); }
+  .steps li:nth-child(4)::before { background: var(--ink); color: var(--paper); }
+  .steps h3 { font-weight: 800; font-stretch: 108%; font-size: 1.7rem; line-height: 1; letter-spacing: -.035em; margin-bottom: .5rem; }
+  .steps p { font-size: .96rem; color: var(--muted); font-weight: 500; }
 
-  /* ---------- CONTACTO ---------- */
-  .contact { background: var(--ink); color: var(--bone); border-top: none; }
-  .contact .eyebrow { color: rgba(242, 238, 229, .6); }
+  /* Contacto */
+  .contact { background: var(--tomato); color: var(--ink); }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; }
-  .contact h2 { font-size: clamp(2.6rem, 5.5vw, 5rem); margin-top: 1rem; }
-  .contact h2 em { color: var(--blue-light); }
-  .contact-lead { margin-top: 1.4rem; max-width: 30rem; color: rgba(242, 238, 229, .75); }
+  .contact h2 { font-size: clamp(2.3rem, 5.4vw, 4.8rem); margin-top: 1rem; }
+  .contact .cut { background: var(--paper); }
+  .contact-lead { margin-top: 1.4rem; max-width: 30rem; font-weight: 500; }
   form { display: grid; gap: 1.1rem; }
-  label { display: grid; gap: .4rem; font-size: .85rem; letter-spacing: .04em; color: rgba(242, 238, 229, .75); }
+  label { display: grid; gap: .35rem; font-size: .88rem; font-weight: 700; }
   input, textarea {
-    background: transparent; border: none; border-bottom: 1.5px solid rgba(242, 238, 229, .45);
-    padding: .6rem 0; color: var(--bone); border-radius: 0; font-size: 1.05rem;
+    background: var(--paper); border: 3px solid var(--ink); border-radius: 0;
+    padding: .7rem .8rem; font-size: 1.02rem; font-weight: 500;
   }
   textarea { resize: vertical; min-height: 6.5rem; }
-  input:focus-visible, textarea:focus-visible { outline: none; border-bottom-color: var(--blue-light); box-shadow: 0 1.5px 0 0 var(--blue-light); }
-  .contact .btn.solid { background: var(--bone); border-color: var(--bone); color: var(--ink); justify-self: start; }
-  .contact .btn.solid:hover { background: var(--blue-light); border-color: var(--blue-light); }
-  .contact :focus-visible { outline-color: var(--blue-light); }
-  #status { min-height: 1.5rem; font-size: .95rem; color: var(--blue-light); }
+  .contact .btn.solid { background: var(--ink); color: var(--paper); box-shadow: 4px 4px 0 var(--paper); justify-self: start; }
+  .contact .btn.solid:hover { box-shadow: 2px 2px 0 var(--paper); }
+  .contact .btn:focus-visible { outline-color: var(--paper); }
+  #status { min-height: 1.5rem; font-weight: 700; }
 
-  /* ---------- FOOTER ---------- */
-  footer.site { background: var(--ink); color: rgba(242, 238, 229, .6); border-top: 1px solid rgba(242, 238, 229, .2); font-size: .85rem; }
+  /* Pie */
+  footer.site { background: var(--ink); color: rgba(243, 238, 228, .7); font-size: .85rem; }
   .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .6rem 2rem; padding-top: 1.4rem; padding-bottom: 1.6rem; }
-  footer.site a { color: rgba(242, 238, 229, .85); }
+  footer.site a { color: var(--paper); }
+  footer.site :focus-visible { outline-color: var(--sun); }
 
-  /* ---------- MOTION ---------- */
+  /* ---------- MOVIMIENTO ---------- */
   .js .reveal { opacity: 0; transform: translateY(18px); }
   .js .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: no-preference) {
-    .js .reveal { transition: opacity .6s ease, transform .6s ease; }
-    .sheet .guide { animation: dash 1.6s ease-out both; }
-    @keyframes dash { from { stroke-dashoffset: 400; opacity: 0; } to { stroke-dashoffset: 0; opacity: 1; } }
+    .js .reveal { transition: opacity .55s ease, transform .55s ease; }
+    .collage .piece { animation: drop .7s cubic-bezier(.2, .8, .2, 1) both; }
+    .collage .piece.b { animation-delay: .12s; }
+    .collage .piece.c { animation-delay: .24s; }
+    .collage .piece.d { animation-delay: .36s; }
+    @keyframes drop { from { opacity: 0; translate: 0 24px; } to { opacity: 1; translate: 0 0; } }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -262,14 +262,14 @@
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 960px) {
     .hero-grid { grid-template-columns: 1fr; }
-    .sheet { margin: 0 auto; max-width: 340px; }
-    .split { grid-template-columns: 1fr; gap: .6rem; }
-    .principles, .steps { grid-template-columns: 1fr 1fr; }
+    .collage { margin: 0 auto; max-width: 380px; }
+    .tiles, .services { grid-template-columns: 1fr; }
+    .tile, .service { min-height: 0; }
+    .tile h3 { margin-top: 1.2rem; }
+    .steps { grid-template-columns: 1fr 1fr; }
     .cases-grid { grid-template-columns: 1fr; }
     .aside { position: static; flex-direction: row; flex-wrap: wrap; }
     .aside > * { flex: 1 1 280px; }
-    .services { grid-template-columns: 1fr; }
-    .service { min-height: 0; }
     .contact-grid { grid-template-columns: 1fr; }
   }
 
@@ -277,23 +277,21 @@
     .menu-btn { display: inline-block; }
     .nav-panel {
       display: none; position: absolute; left: 0; right: 0; top: 100%;
-      background: var(--bone); border-bottom: 1px solid var(--line);
+      background: var(--paper); border-bottom: 3px solid var(--ink);
       flex-direction: column; align-items: flex-start; gap: 1.2rem;
       padding: 1.4rem var(--gut) 1.8rem;
     }
     .nav-panel.open { display: flex; }
-    .nav-panel ul { flex-direction: column; gap: .9rem; font-size: 1.15rem; }
+    .nav-panel ul { flex-direction: column; gap: .9rem; font-size: 1.2rem; }
   }
 
   @media (max-width: 600px) {
     .stats { grid-template-columns: 1fr; }
-    .stat { padding: 1rem 0; }
-    .stat + .stat { border-left: none; border-top: 1px solid var(--line); padding-left: 0; }
-    .principles, .steps { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
     .case-btn { grid-template-columns: 2.2rem 1fr 1.5rem; }
     .case-tags { display: none; }
     .case-body { grid-template-columns: 1fr; padding: 0 0 1.4rem 3.2rem; }
-    .result { text-align: left; }
+    .result { justify-self: start; }
     .brand-name small { display: none; }
   }
 </style>
@@ -306,10 +304,10 @@
   <div class="wrap bar">
     <a class="brand" href="#top" aria-label="Recorte Estudio, inicio">
       <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
-        <rect x="3" y="3" width="26" height="26" fill="none" stroke="#15171c" stroke-width="2"/>
-        <rect x="13" y="13" width="16" height="16" fill="#2338d4"/>
+        <path d="M16 17V3a14 14 0 1 0 14 14z" fill="#e8472b"/>
+        <path d="M19 14V2a14 14 0 0 1 11 12z" fill="#161616"/>
       </svg>
-      <span class="brand-name">Recorte<small>Estudio</small></span>
+      <span class="brand-name">recorte<small>estudio</small></span>
     </a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navPanel">Menú</button>
     <div class="nav-panel" id="navPanel">
@@ -330,8 +328,8 @@
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <p class="eyebrow">Estudio de diseño · Buenos Aires</p>
-          <h1 class="display">Diseñar es decidir qué dejar <em>afuera.</em></h1>
+          <span class="tag">Estudio de diseño · Buenos Aires</span>
+          <h1 class="display">Diseñar es decidir qué dejar <span class="cut">afuera.</span></h1>
           <p class="hero-sub">Hacemos identidad visual, sitios web y productos digitales para marcas que prefieren decir menos y decirlo mejor.</p>
           <div class="hero-cta">
             <a class="btn solid" href="#casos">Ver casos →</a>
@@ -339,33 +337,20 @@
           </div>
         </div>
 
-        <svg class="sheet" viewBox="0 0 480 560" role="img" aria-label="Una hoja con márgenes marcados en azul y marcas de corte en las esquinas">
-          <!-- marcas de corte -->
-          <g stroke="#15171c" stroke-width="1.2" fill="none">
-            <path d="M40 66 H12 M60 46 V18"/>
-            <path d="M440 66 H468 M420 46 V18"/>
-            <path d="M40 494 H12 M60 514 V542"/>
-            <path d="M440 494 H468 M420 514 V542"/>
-          </g>
-          <!-- hoja -->
-          <rect x="60" y="66" width="360" height="428" fill="#faf8f3" stroke="#15171c" stroke-width="1.2"/>
-          <!-- guías de margen -->
-          <rect class="guide" x="96" y="102" width="288" height="356" fill="none" stroke="#2338d4" stroke-width="1.2"/>
-          <!-- contenido -->
-          <rect x="96" y="102" width="210" height="16" fill="#15171c"/>
-          <rect x="96" y="128" width="150" height="16" fill="#15171c"/>
-          <rect x="96" y="172" width="288" height="160" fill="#2338d4"/>
-          <circle cx="318" cy="228" r="34" fill="#f2eee5"/>
-          <rect x="96" y="352" width="288" height="5" fill="#15171c" opacity=".25"/>
-          <rect x="96" y="367" width="250" height="5" fill="#15171c" opacity=".25"/>
-          <rect x="96" y="382" width="270" height="5" fill="#15171c" opacity=".25"/>
-          <rect x="96" y="420" width="92" height="38" rx="19" fill="none" stroke="#15171c" stroke-width="1.2"/>
-          <!-- cota del margen -->
-          <g stroke="#2338d4" stroke-width="1.2" fill="none">
-            <path d="M60 480 H96 M60 474 V486 M96 474 V486"/>
-          </g>
-          <text x="78" y="508" text-anchor="middle" font-family="Hanken Grotesk, system-ui, sans-serif" font-size="12" fill="#2338d4" font-weight="600">24</text>
-          <text x="420" y="508" text-anchor="end" font-family="Hanken Grotesk, system-ui, sans-serif" font-size="11" fill="#5a5d66" letter-spacing="1.5">MARGEN / RECORTE</text>
+        <svg class="collage" viewBox="0 0 520 520" role="img" aria-label="Composición de formas de papel recortado: un círculo al que le falta un cuarto, el cuarto desplazado, un cuadrado y una cúpula">
+          <!-- línea de corte -->
+          <rect x="14" y="14" width="492" height="492" rx="6" fill="none" stroke="#161616" stroke-width="2.5" stroke-dasharray="10 8"/>
+          <!-- círculo con un cuarto faltante -->
+          <path class="piece a" d="M200 230 V90 A140 140 0 1 0 340 230 Z" fill="#e8472b"/>
+          <!-- cuarto desplazado -->
+          <path class="piece b" d="M200 230 V90 A140 140 0 0 1 340 230 Z" fill="#161616" transform="translate(150 -60) rotate(14 270 160)"/>
+          <!-- cuadrado girado -->
+          <rect class="piece c" x="300" y="290" width="170" height="170" fill="#f3b93b" transform="rotate(9 385 375)"/>
+          <circle class="piece c" cx="385" cy="375" r="38" fill="#f3eee4"/>
+          <!-- cúpula -->
+          <path class="piece d" d="M50 470 A110 110 0 0 1 270 470 Z" fill="#17493a"/>
+          <rect x="34" y="470" width="260" height="3" fill="#161616"/>
+          <text x="34" y="498" font-family="Archivo, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#161616">CORTAR AQUÍ</text>
         </svg>
       </div>
 
@@ -377,25 +362,25 @@
     </div>
   </section>
 
-  <section class="section" id="postura" style="margin-top: clamp(2.5rem, 6vw, 5rem);">
-    <div class="wrap split">
-      <p class="eyebrow">01 — Postura</p>
-      <div class="reveal">
-        <h2 class="display statement">Una marca clara cuesta menos que una marca <em>ruidosa.</em></h2>
-        <ul class="principles">
-          <li><span class="n">A</span><h3>Decidir antes que decorar</h3><p>Cada elemento tiene que justificar su lugar. Si no ayuda a entender o a elegir, se va.</p></li>
-          <li><span class="n">B</span><h3>Una idea por pantalla</h3><p>Quien visita tu sitio tiene segundos. Le damos una sola cosa para recordar, bien dicha.</p></li>
-          <li><span class="n">C</span><h3>Medir lo que importa</h3><p>Pedidos, consultas, altas. Acordamos el número antes de diseñar y lo revisamos después.</p></li>
-        </ul>
+  <section class="section" id="postura">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="tag">01 · Postura</span>
+        <h2 class="display">Una marca clara cuesta menos que una marca <span class="cut t">ruidosa.</span></h2>
       </div>
+      <ul class="tiles">
+        <li class="tile reveal"><span class="letter">A</span><h3>Decidir antes que decorar</h3><p>Cada elemento tiene que justificar su lugar. Si no ayuda a entender o a elegir, se va.</p></li>
+        <li class="tile reveal"><span class="letter">B</span><h3>Una idea por pantalla</h3><p>Quien visita tu sitio tiene segundos. Le damos una sola cosa para recordar, bien dicha.</p></li>
+        <li class="tile reveal"><span class="letter">C</span><h3>Medir lo que importa</h3><p>Pedidos, consultas, altas. Acordamos el número antes de diseñar y lo revisamos después.</p></li>
+      </ul>
     </div>
   </section>
 
-  <section class="section" id="casos">
+  <section class="section cases-section" id="casos">
     <div class="wrap cases-grid">
       <div>
         <div class="cases-head">
-          <h2 class="display">Casos <em>seleccionados</em></h2>
+          <h2 class="display">Casos <span class="cut">seleccionados</span></h2>
           <span id="count" aria-live="polite">06 casos</span>
         </div>
 
@@ -491,9 +476,9 @@
 
   <section class="section" id="servicios">
     <div class="wrap">
-      <div class="split">
-        <p class="eyebrow">02 — Servicios</p>
-        <h2 class="display statement reveal">Tres cosas, <em>bien hechas.</em></h2>
+      <div class="section-head reveal">
+        <span class="tag">02 · Servicios</span>
+        <h2 class="display">Tres cosas, <span class="cut p">bien hechas.</span></h2>
       </div>
       <div class="services">
         <article class="service reveal">
@@ -521,11 +506,11 @@
     </div>
   </section>
 
-  <section class="section" id="proceso">
+  <section class="section" id="proceso" style="padding-top:0">
     <div class="wrap">
-      <div class="split">
-        <p class="eyebrow">03 — Proceso</p>
-        <h2 class="display statement reveal">Cuatro pasos, <em>sin sorpresas.</em></h2>
+      <div class="section-head reveal">
+        <span class="tag">03 · Proceso</span>
+        <h2 class="display">Cuatro pasos, <span class="cut t">sin sorpresas.</span></h2>
       </div>
       <ol class="steps">
         <li class="reveal"><h3>Escuchar</h3><p>Una charla y un brief de una página con el objetivo y el número que lo mide.</p></li>
@@ -539,8 +524,8 @@
   <section class="section contact" id="contacto">
     <div class="wrap contact-grid">
       <div class="reveal">
-        <p class="eyebrow">04 — Contacto</p>
-        <h2 class="display">Cuéntanos qué quieres <em>decir.</em></h2>
+        <span class="tag">04 · Contacto</span>
+        <h2 class="display">Cuéntanos qué quieres <span class="cut">decir.</span></h2>
         <p class="contact-lead">Una frase alcanza para empezar. Te respondemos con preguntas, no con un presupuesto genérico.</p>
       </div>
       <form id="form" class="reveal" novalidate>
