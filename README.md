@@ -10,4 +10,4 @@ Pieza de portfolio: landing de una agencia de diseño ficticia (identidad, web y
 - Menú móvil, formulario de demostración (no envía nada) y aparición al hacer scroll.
 - Teclado completo, foco visible, `prefers-reduced-motion` respetado y sin scroll horizontal en móvil.
 
-[Ver demo →](https://laura-m-stack.github.io/vanta-studio-landing/)
+[Ver demo →](https://laura-m-stack.github.io/recorte-estudio/)
